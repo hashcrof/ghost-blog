@@ -1,6 +1,12 @@
 #!/bin/bash
 #set -e
+url="$JAWSDB_URL"
 
+protocol=$(echo "$JAWSDB_URL" | grep "://" | sed -e's,^\(.*://\).*,\1,g')
+# Remove the protocol
+url_no_protocol=$(echo "${JAWSDB_URL/$protocol/}")
+# Use tr: Make the protocol lower-case for easy string compare
+protocol=$(echo "$protocol" | tr '[:upper:]' '[:lower:]')
 userpass=$(echo "$url_no_protocol" | grep "@" | cut -d"/" -f1 | rev | cut -d"@" -f2- | rev)
 pass=$(echo "$userpass" | grep ":" | cut -d":" -f2)
 if [ -n "$pass" ]; then
@@ -14,6 +20,15 @@ hostport=$(echo "${url_no_protocol/$userpass@/}" | cut -d"/" -f1)
 host=$(echo "$hostport" | cut -d":" -f1)
 port=$(echo "$hostport" | grep ":" | cut -d":" -f2)
 path=$(echo "$url_no_protocol" | grep "/" | cut -d"/" -f2-)
+
+echo "url: $url"
+echo "  protocol: $protocol"
+echo "  userpass: $userpass"
+echo "  user: $user"
+echo "  pass: $pass"
+echo "  host: $host"
+echo "  port: $port"
+echo "  path: $path"
 
 export database__client=$(echo "$protocol" | sed -r 's/\:\/\///g')
 export database__connection__host="$host"
