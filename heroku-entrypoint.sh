@@ -15,7 +15,7 @@ host=$(echo "$hostport" | cut -d":" -f1)
 port=$(echo "$hostport" | grep ":" | cut -d":" -f2)
 path=$(echo "$url_no_protocol" | grep "/" | cut -d"/" -f2-)
 
-export database__client="$hostport"
+export database__client="mysql"
 export database__connection__host="$host"
 export database__connection__user="$user"
 export database__connection__password="$pass"
