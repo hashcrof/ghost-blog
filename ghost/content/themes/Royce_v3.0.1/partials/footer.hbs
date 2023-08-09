@@ -1,0 +1,11 @@
+{{!-- The footer of the theme --}}
+<footer class="site-footer">
+    <div class="inner">
+        {{#if @site.secondary_navigation}}
+            <nav class="site-footer-nav" aria-label="Secondary Navigation">
+                {{navigation type="secondary"}}
+            </nav>
+        {{/if}}
+        <p class="site-footer-copyright"><a href="{{@site.url}}">{{@site.title}}</a> &copy; {{date format="YYYY"}}. {{{t "Royce theme by {jgtlink}. Powered by {ghostlink}." jgtlink="<a target=\"_blank\" href=\"https://justgoodthemes.com/\" rel=\"noopener\">Just Good Themes</a>" ghostlink="<a target=\"_blank\" href=\"https://ghost.org\" rel=\"noopener\">Ghost</a>"}}}</p>
+    </div>
+</footer>

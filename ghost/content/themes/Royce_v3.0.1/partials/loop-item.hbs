@@ -1,0 +1,19 @@
+{{!-- The post feed item --}}
+<article class="{{post_class}}">
+    <header class="post-header">
+        <div class="post-meta">
+            {{#if featured}}<span class="post-featured-badge">{{t "Featured"}}</span> &ndash; {{/if}}<time class="published" datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
+        </div>
+        <h2 class="post-title h3">
+            <a href="{{{url}}}">
+                {{title}}{{#if @site.members_enabled}}{{#match @custom.post_access_labels "!=" "None"}}&nbsp;{{> "post-access-labels"}}{{/match}}{{/if}}
+            </a>
+        </h2>
+    </header>
+    <div class="post-content">
+        <p class="post-excerpt{{#unless custom_excerpt}} post-excerpt-dots{{/unless}}">{{excerpt words="40"}}</p>
+        {{#if tags}}
+        <p class="post-tags">{{tags separator=" "}}</p>
+        {{/if}}
+    </div>
+</article>

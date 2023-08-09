@@ -1,0 +1,26 @@
+{{!-- Members menu --}}
+<ul class="actions">
+    {{#if @member}}
+        <li class="action-item">
+            <a class="button button-outlined" href="javascript:" data-portal="account">
+                {{t "View Account"}}
+            </a>
+        </li>
+        <li class="action-item action-signout">
+            <a href="javascript:" data-members-signout>
+                {{t "Sign out"}}
+            </a>
+        </li>
+    {{else}}
+        <li class="action-item action-signin">
+            <a class="button button-outlined" href="javascript:" data-portal="signin">
+                {{t "Sign in"}}
+            </a>
+        </li>
+        <li class="action-item action-signup">{{t "Need an account?"}}
+            <a href="javascript:" data-portal="signup">
+                {{t "Sign up"}}
+            </a>
+        </li>
+    {{/if}}
+</ul>

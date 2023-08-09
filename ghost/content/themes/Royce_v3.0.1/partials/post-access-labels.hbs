@@ -1,0 +1,16 @@
+{{!-- The post feed item labels --}}
+{{#match @custom.post_access_labels "=" "Public"}}
+{{#has visibility="public"}}
+<span class="post-label">{{t "Free"}}</span>
+{{/has}}
+{{else}}
+{{#has visibility="members"}}
+<span class="post-label">{{t "Members"}}</span>
+{{/has}}
+{{#has visibility="paid"}}
+<span class="post-label">{{t "Paid"}}</span>
+{{/has}}
+{{#has visibility="tiers"}}
+<span class="post-label">{{tiers lastSeparator=", " suffix=""}}</span>
+{{/has}}
+{{/match}}

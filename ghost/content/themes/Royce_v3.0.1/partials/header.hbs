@@ -1,0 +1,48 @@
+{{!-- The header of the theme --}}
+<header class="site-header">
+    <div class="site-header-scroll">
+        <div class="site-header-inside">
+            <div class="site-header-branding">
+                {{#if @custom.sidebar_avatar}}
+                    <a href="{{@site.url}}" class="site-header-avatar">
+                        <img src="{{@custom.sidebar_avatar}}" alt="{{#if @custom.sidebar_avatar_alt_text}}{{@custom.sidebar_avatar_alt_text}}{{/if}}" class="avatar" />
+                    </a>
+                {{else}}
+                    {{#if @site.logo}}
+                        <a href="{{@site.url}}" class="site-header-logo">
+                            <img src="{{img_url @site.logo size="xs"}}" alt="{{@site.title}}" />
+                        </a>
+                    {{/if}}
+                {{/if}}
+                <div class="site-header-identity">
+                    {{#is "index"}}
+                        <h1 class="site-header-title h4"><a href="{{@site.url}}">{{@site.title}}</a></h1>
+                    {{else}}
+                        <p class="site-header-title h4"><a href="{{@site.url}}">{{@site.title}}</a></p>
+                    {{/is}}
+                    {{#if @site.description}}
+                        <p class="site-header-desc">{{@site.description}}</p>
+                    {{/if}}
+                </div>
+                <button id="nav-toggle" class="nav-toggle">
+                    <span class="screen-reader-text">{{t "Menu"}}</span>
+                    <span class="icon-menu" aria-hidden="true"></span>
+                </button>
+            </div>
+            <nav class="site-header-nav" aria-label="Main Navigation">
+                <div class="site-header-nav-wrap">
+                    <div class="site-header-nav-inside">
+                        {{!-- Includes the primary menu - partials/navigation.hbs --}}
+                        {{navigation}}
+                        {{!-- Includes social links - partials/social-links.hbs --}}
+                        {{> "social-links"}}
+                        {{!-- If members enabled, includes the members menu - partials/member-navigation.hbs --}}
+                        {{#if @site.members_enabled}}
+                            {{> "member-navigation"}}
+                        {{/if}}
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

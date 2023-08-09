@@ -1,0 +1,85 @@
+{
+    "name": "royce",
+    "description": "A simple single-author Ghost theme for writers and bloggers.",
+    "demo": "https://royce.justgoodthemes.eu/",
+    "version": "3.0.1",
+    "engines": {
+        "ghost": ">=4.0.0"
+    },
+    "screenshots": {
+        "desktop": "assets/screenshot-desktop.jpg",
+        "mobile": "assets/screenshot-mobile.jpg"
+    },
+    "author": {
+        "name": "Just Good Themes",
+        "email": "hello@justgoodthemes.com",
+        "url": "https://justgoodthemes.com"
+    },
+    "keywords": [
+        "ghost",
+        "theme",
+        "ghost-theme"
+    ],
+    "config": {
+        "posts_per_page": 8,
+        "card_assets": {
+            "exclude": [
+                "blockquote",
+                "bookmark",
+                "gallery"
+            ]
+        },
+        "image_sizes": {
+            "xxs": {
+                "width": 100
+            },
+            "xs": {
+                "width": 300
+            },
+            "s": {
+                "width": 600
+            },
+            "m": {
+                "width": 800
+            },
+            "l": {
+                "width": 1100
+            },
+            "xl": {
+                "width": 1600
+            }
+        },
+        "custom": {
+            "sidebar_avatar": {
+                "type": "image"
+            },
+            "sidebar_avatar_alt_text": {
+                "type": "text"
+            },
+            "post_access_labels": {
+                "type": "select",
+                "options": ["None", "Public", "Not public"],
+                "default": "None"
+            },
+            "hero_text": {
+                "type": "text",
+                "group": "homepage"
+            },
+            "enable_drop_cap": {
+                "type": "boolean",
+                "default": false,
+                "group": "post"
+            },
+            "enable_disqus": {
+                "type": "boolean",
+                "default": false,
+                "group": "post"
+            },
+            "disqus_shortname": {
+                "type": "text",
+                "default": "",
+                "group": "post"
+            }
+        }
+    }
+}

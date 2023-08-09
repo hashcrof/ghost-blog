@@ -1,0 +1,11 @@
+{{!-- Social links list --}}
+<div class="social-links">
+    {{#if @site.facebook}}
+        <a href="{{facebook_url}}" target="_blank" rel="noopener" aria-label="Facebook">{{> "icons/facebook"}}</a>
+    {{/if}}
+    {{#if @site.twitter}}
+        <a href="{{twitter_url}}" target="_blank" rel="noopener" aria-label="Twitter">{{> "icons/twitter"}}</a>
+    {{/if}}
+    {{!-- <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">{{> "icons/instagram"}}</a> --}}
+    {{!-- <a href="https://github.com/" target="_blank" rel="noopener"aria-label="GitHub">{{> "icons/github"}}</a> --}}
+</div>

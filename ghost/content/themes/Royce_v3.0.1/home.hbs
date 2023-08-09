@@ -1,0 +1,65 @@
+{{!< default}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default.hbs template --}}
+
+{{!-- The content area on the homepage --}}
+<main id="main" class="site-main">
+
+    {{!-- Hero text --}}
+    {{#if @custom.hero_text}}
+        <div class="hero inner">
+            <p class="hero-text h3 has-underline">{{@custom.hero_text}}</p>
+        </div>
+    {{/if}}
+
+    {{!-- Featured posts --}}
+    {{#get "posts" filter="featured:true" limit="3" include="tags,tiers" as |featured_posts|}}
+        {{#foreach featured_posts}}
+            {{#if @first}}
+                <div class="featured-posts featured-posts-{{featured_posts.length}}">
+            {{/if}}
+                    <article class="{{post_class}} post-featured{{#if feature_image}} post-has-image{{/if}}">
+                        <div class="post-inside">
+                            {{#if feature_image}}
+                                <a href="{{url}}" class="post-image">
+                                    <img
+                                        srcset="{{img_url feature_image size="xs"}} 300w, {{img_url feature_image size="s"}} 600w, {{img_url feature_image size="m"}} 800w, {{img_url feature_image size="l"}} 1100w, {{img_url feature_image size="xl"}} 1600w"
+                                        sizes="(max-width: 800px) 94vw, (max-width: 1000px) 64vw, (max-width: 1468px) calc(94vw - 300px), 1100px"
+                                        src="{{img_url feature_image size="l"}}"
+                                        alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                                    />
+                                </a>
+                            {{/if}}
+                            <header class="post-header">
+                                <div class="post-meta">
+                                    <time class="published" datetime="{{date format='YYYY-MM-DD'}}">{{date format="LL"}}</time>
+                                </div>
+                                <h2 class="post-title h3">
+                                    <a href="{{{url}}}">{{title}}{{#if @site.members_enabled}}{{#match @custom.post_access_labels "!=" "None"}}&nbsp;{{> "post-access-labels"}}{{/match}}{{/if}}</a>
+                                </h2>
+                                {{#if tags}}
+                                    <div class="post-tags">{{tags separator=" "}}</div>
+                                {{/if}}
+                            </header>
+                        </div>
+                    </article>
+            {{#if @last}}
+            </div>
+            {{/if}}
+        {{/foreach}}
+    {{/get}}
+
+    {{!-- Post feed --}}
+    <div class="post-feed inner">
+        <div class="post-feed-title small-caps has-underline">{{t "Latest Posts"}}</div>
+        {{!--Includes the post loop - partials/loop.hbs --}}
+        {{> "loop"}}
+    </div>
+
+    {{!-- If members enabled, includes the subscribe cta - partials/member-subscribe-box.hbs --}}
+    {{#if @site.members_enabled}}
+        {{#unless @member}}
+            {{> "member-subscribe-box"}}
+        {{/unless}}
+    {{/if}}
+
+</main>

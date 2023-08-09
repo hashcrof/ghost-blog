@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+    <head>
+        {{!-- Document Settings --}}
+        <meta charset="utf-8">
+        {{!-- Page Meta --}}
+        <title>{{meta_title}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {{!-- Styles --}}
+        {{> "custom-fonts"}}
+        <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+        {{!-- Outputs SEO meta+structured data and other important settings --}}
+        {{ghost_head}}
+    </head>
+    <body class="{{body_class}}">
+        <div id="page" class="site">
+            {{!-- The tag below includes the theme header - partials/header.hbs --}}
+            {{> "header"}}
+            <div id="content" class="site-content">
+                {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+                {{{body}}}
+                {{!-- The tag below includes the theme footer - partials/footer.hbs --}}
+                {{> "footer"}}
+            </div>
+        </div>
+        {{!-- Scripts --}}
+        <script src="{{asset "js/index.js"}}"></script>
+        {{#is "post, page"}}
+            <script src="{{asset "js/post.js"}}"></script>
+        {{/is}}
+        {{!-- Outputs important scripts and data --}}
+        {{ghost_foot}}
+    </body>
+</html>

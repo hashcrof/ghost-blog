@@ -1,0 +1,21 @@
+{{!< default-custom}}
+{{!-- The tag above means - insert everything in this file into the {body} of the default-custom.hbs template --}}
+
+{{#contentFor "custom-meta-title"}}{{statusCode}}{{/contentFor}}
+{{#if @site.cover_image}}
+    {{#contentFor "background-image-style"}}
+        <style>.custom-template .site:before { background-image: url({{img_url @site.cover_image}}); }</style>
+    {{/contentFor}}
+{{/if}}
+
+<body class="custom-template">
+    <div id="page" class="site">
+        <div id="content" class="site-content">
+            <div class="inner">
+                <h1 class="page-title">{{t "404: Page Not Found"}}</h1>
+                <p class="page-desc">{{t "The thing you were looking for is no longer here or never was."}}</p>
+                <a href="{{@site.url}}">{{{t "Go to the front page &rarr;" }}}</a>
+            </div>
+        </div>
+    </div>
+</body>

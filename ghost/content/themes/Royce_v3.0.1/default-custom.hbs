@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+    <head>
+        {{!-- Document Settings --}}
+        <meta charset="utf-8">
+        {{!-- Page Meta --}}
+        <title>{{{block "custom-meta-title"}}} - {{@site.title}}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {{!-- Styles --}}
+        {{> "custom-fonts"}}
+        <link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+        {{{block "background-image-style"}}}
+        {{!-- Outputs SEO meta+structured data and other important settings --}}
+        {{ghost_head}}
+    </head>
+    {{!-- Inserts the main content --}}
+    {{{body}}}
+</html>
