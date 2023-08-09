@@ -31,6 +31,7 @@ host=$(echo "$hostport" | cut -d":" -f1)
 port=$(echo "$hostport" | grep ":" | cut -d":" -f2)
 path=$(echo "$url_no_protocol" | grep "/" | cut -d"/" -f2-)
 
+
 echo "url: $url"
 echo "  protocol: $protocol"
 echo "  userpass: $userpass"
