@@ -38,5 +38,5 @@ export database__connection__database="$path"
 export server__host='0.0.0.0'
 export server__port=$PORT
 export core__theme__active_theme="Royce_v3.0.1"
-export url="http://$HEROKU_APP_NAME.herokuapp.com"
+export url="http://ghost-blog-aeda5548fe7c.herokuapp.com"
 exec docker-entrypoint.sh "$@"
