@@ -1,6 +1,5 @@
 #!/bin/bash
 #set -e
-url="$JAWSDB_URL"
 
 protocol=$(echo "$JAWSDB_URL" | grep "://" | sed -e's,^\(.*://\).*,\1,g')
 # Remove the protocol
@@ -21,7 +20,8 @@ host=$(echo "$hostport" | cut -d":" -f1)
 port=$(echo "$hostport" | grep ":" | cut -d":" -f2)
 path=$(echo "$url_no_protocol" | grep "/" | cut -d"/" -f2-)
 
-echo "url: $url"
+echo "app name: $HEROKU_APP_NAME"
+echo "db url: $JAWSDB_URL"
 echo "  protocol: $protocol"
 echo "  userpass: $userpass"
 echo "  user: $user"
@@ -38,4 +38,5 @@ export database__connection__database="$path"
 export server__host='0.0.0.0'
 export server__port=$PORT
 export core__theme__active_theme="Royce_v3.0.1"
+export url="http://$HEROKU_APP_NAME.herokuapp.com"
 exec docker-entrypoint.sh "$@"
