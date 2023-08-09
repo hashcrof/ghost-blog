@@ -37,4 +37,5 @@ export database__connection__password="$pass"
 export database__connection__database="$path"
 export server__host='0.0.0.0'
 export server__port=$PORT
+export core__theme__active_theme="Royce_v3.0.1"
 exec docker-entrypoint.sh "$@"

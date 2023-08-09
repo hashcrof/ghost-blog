@@ -8,6 +8,8 @@ https://github.com/docker-library/ghost
 
 https://forum.ghost.org/t/how-to-add-a-theme-to-dockerfile/17876/3
 
+https://github.com/TryGhost/Ghost/blob/v5.58.0/ghost/core/core/server/data/schema/default-settings/default-settings.json
+
 
 `git init`
 `git add .`
