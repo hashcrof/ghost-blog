@@ -1,19 +1,25 @@
 #!/bin/bash
 #set -e
 
-read -r -d '' js_script <<'EOF'
-var URL = require('url').URL;
+userpass=$(echo "$url_no_protocol" | grep "@" | cut -d"/" -f1 | rev | cut -d"@" -f2- | rev)
+pass=$(echo "$userpass" | grep ":" | cut -d":" -f2)
+if [ -n "$pass" ]; then
+  user=$(echo "$userpass" | grep ":" | cut -d":" -f1)
+else
+  user="$userpass"
+fi
 
-var url = new URL(arg);
+# Extract the host
+hostport=$(echo "${url_no_protocol/$userpass@/}" | cut -d"/" -f1)
+host=$(echo "$hostport" | cut -d":" -f1)
+port=$(echo "$hostport" | grep ":" | cut -d":" -f2)
+path=$(echo "$url_no_protocol" | grep "/" | cut -d"/" -f2-)
 
-console.log(`database__client=${url.protocol.slice(0, -1)}`);
-console.log(`database__connection__database=${url.pathname.substring(1)}`);
-console.log(`database__connection__host=${url.host}`);
-console.log(`database__connection__password=${url.password}`);
-console.log(`database__connection__user=${url.username}`);
-EOF
-
-export $(node -e "var arg = '$(printenv $DB_URL_ALIAS)';$js_script" | xargs)
+export database__client="$hostport"
+export database__connection__host="$host"
+export database__connection__user="$user"
+export database__connection__password="$pass"
+export database__connection__database="$path"
 export server__host='0.0.0.0'
 export server__port=$PORT
 
