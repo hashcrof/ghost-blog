@@ -1,20 +1,20 @@
 {
   "name": "Ghost",
   "description": "Ghost blogging platform",
-  "repository": "https://github.com/knshiro/ghost-heroku",
+  "repository": "https://github.com/hashcrof/ghost-blog",
   "keywords": ["ghost", "blog"],
   "stack": "container",
   "success_url": "/",
   "addons": [
     {
-      "plan": "cleardb:ignite",
-      "as": "CLEARDB_DATABASE"
+      "plan": "jawsdb:kitefin",
+      "as": "JAWSDB"
     }
   ],
   "env": {
     "DB_URL_ALIAS": {
       "description": "An alias for your db url environment variable",
-      "value": "CLEARDB_DATABASE_URL"
+      "value": "JAWSDB_URL"
     },
     "database__pool__min": {
       "description": "Minimum number of connections to your db",
