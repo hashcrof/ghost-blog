@@ -30,6 +30,7 @@ echo "  host: $host"
 echo "  port: $port"
 echo "  path: $path"
 
+##these are all Ghost CMS variables
 export database__client=$(echo "$protocol" | sed -r 's/\:\/\///g')
 export database__connection__host="$host"
 export database__connection__user="$user"
