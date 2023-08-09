@@ -5,6 +5,7 @@ COPY root/ .
 RUN ls -la /var/lib/ghost/content.orig/themes && \
 		mv heroku-entrypoint.sh /usr/local/bin && \
 		mv content/themes/* /var/lib/ghost/content.orig/themes && \
+		touch /var/lib/ghost/versions/$GHOST_VERSION/core/server/data/schema/default-settings/default-settings.json && \
 		# Set theme to active
     (sed -i "s/casper/$NAME/" /var/lib/ghost/versions/$GHOST_VERSION/core/server/data/schema/default-settings.json || sed -i "s/casper/$NAME/" /var/lib/ghost/versions/$GHOST_VERSION/core/server/data/schema/default-settings/default-settings.json)
 ENTRYPOINT ["heroku-entrypoint.sh"]
