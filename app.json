@@ -1,0 +1,32 @@
+{
+  "name": "Ghost",
+  "description": "Ghost blogging platform",
+  "repository": "https://github.com/knshiro/ghost-heroku",
+  "keywords": ["ghost", "blog"],
+  "stack": "container",
+  "success_url": "/",
+  "addons": [
+    {
+      "plan": "cleardb:ignite",
+      "as": "CLEARDB_DATABASE"
+    }
+  ],
+  "env": {
+    "DB_URL_ALIAS": {
+      "description": "An alias for your db url environment variable",
+      "value": "CLEARDB_DATABASE_URL"
+    },
+    "database__pool__min": {
+      "description": "Minimum number of connections to your db",
+      "value": "2"
+    },
+    "database__pool__max": {
+      "description": "Maximum number of connections to your db",
+      "value": "10"
+    },
+    "url": {
+      "description": "Url of your blog",
+      "required": true
+    }
+  }
+}

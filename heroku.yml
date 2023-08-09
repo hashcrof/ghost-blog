@@ -1,0 +1,11 @@
+# Resources to provision on app creation
+setup:
+  addons:
+    - plan: jawsdb:kitefin
+    as: JAWSDB
+  config:
+    DB_URL_NAME: JAWSDB_URL
+# Reference the Dockerfiles to build into Docker images
+build:
+  docker:
+    web: Dockerfile
