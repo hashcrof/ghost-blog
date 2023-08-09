@@ -37,5 +37,5 @@ export database__connection__password="$pass"
 export database__connection__database="$path"
 export server__host='0.0.0.0'
 export server__port=$PORT
-
+export paths__contentPath="content/"
 exec docker-entrypoint.sh "$@"
