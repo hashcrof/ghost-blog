@@ -9,6 +9,10 @@
     {
       "plan": "jawsdb:kitefin",
       "as": "JAWSDB"
+    },
+    {
+      "plan": "mailertogo:micro",
+      "as": "MAILER"
     }
   ],
   "env": {
