@@ -11,7 +11,7 @@
       "as": "JAWSDB"
     },
     {
-      "plan": "mailertogo:micro",
+      "plan": "mailgun:starter",
       "as": "MAILER"
     }
   ],
@@ -31,17 +31,14 @@
     "mail__transport": {
       "value": "SMTP"
     },
-    "mail__options__host": {
-      "value": "MAILERTOGO_SMTP_HOST"
-    },
-    "mail__options__port": {
-      "value": "MAILERTOGO_SMTP_PORT"
+    "mail__options__service": {
+      "value": "Mailgun"
     },
     "mail__options__auth__user": {
-      "value": "MAILERTOGO_SMTP_USER"
+      "value": "MAILGUN_SMTP_LOGIN"
     },
     "mail__options__auth__pass": {
-      "value": "MAILERTOGO_SMTP_PASSWORD"
+      "value": "MAILGUN_SMTP_PASSWORD"
     },
     "url": {
       "description": "Url of your blog",

@@ -3,7 +3,7 @@ setup:
   addons:
     - plan: jawsdb:kitefin
       as: JAWSDB
-    - plan: mailertogo:micro
+    - plan: mailgun:starter
       as: MAILER
   config:
     DB_URL_NAME: JAWSDB_URL
