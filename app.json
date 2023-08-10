@@ -28,6 +28,21 @@
       "description": "Maximum number of connections to your db",
       "value": "10"
     },
+    "mail__transport": {
+      "value": "SMTP"
+    },
+    "mail__options__host": {
+      "value": "MAILERTOGO_SMTP_HOST"
+    },
+    "mail__options__port": {
+      "value": "MAILERTOGO_SMTP_PORT"
+    },
+    "mail__options__auth__user": {
+      "value": "MAILERTOGO_SMTP_USER"
+    },
+    "mail__options__auth__pass": {
+      "value": "MAILERTOGO_SMTP_PASSWORD"
+    },
     "url": {
       "description": "Url of your blog",
       "required": true
